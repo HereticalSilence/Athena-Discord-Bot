@@ -55,16 +55,20 @@ bot.startTime = datetime.datetime.now()
 #by loading the cogs from a database but that is for later
 initialCogs = []
 
+#-- Load Cog Function --#
+async def loadCog(cog):
+    try:
+        await bot.load_extension(cog)
+    except Exception:
+        print(Exception)
+    else:
+        print(f"{cog} was loaded successfully")
+
 #-- Ready Function --#
 @bot.event
 async def on_ready():
     for cog in initialCogs:
-        try:
-            await bot.load_extension(cog)
-        except Exception:
-            print(Exception)
-        else:
-            print(f"{cog} was loaded successfully")
+        loadCog(cog)
     print(f"Logged in as {bot.user} (ID: {bot.user.id})\nStart Time: {bot.startTime}")
 
 bot.run(TOKEN)
