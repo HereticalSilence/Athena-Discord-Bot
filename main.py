@@ -46,6 +46,12 @@ while not ValidSelection:
     else:
         print ("ERROR: Invalid Bot Selection\n")
 
+#-- Bot Start Time --#
+bot.startTime = datetime.datetime.now()
+
+#-- Remove Standard Help Command --#
+bot.remove_command('help')
+
 #-- Universal Variables --#
 bot.prefix = prefix
 bot.startTime = datetime.datetime.now()
