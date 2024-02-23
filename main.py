@@ -25,9 +25,9 @@ intents.message_content = True
 ValidSelection = False
 while not ValidSelection:
 
-    botSelection = input("Please select a bot to launch\n0. Athena\n1. Athena Dev\n-> ")
+    botSelection = int(input("Please select a bot to launch\n0. Athena\n1. Athena Dev\n-> "))
 
-    if botSelection == "0":
+    if botSelection == 0:
         TOKEN = secret.Athena_Token
         prefix = "$"
 
@@ -35,7 +35,7 @@ while not ValidSelection:
         
         ValidSelection = True
 
-    elif botSelection == "1":
+    elif botSelection == 1:
         TOKEN = secret.AthenaDev_Token
         prefix = "$$"
 
@@ -44,7 +44,7 @@ while not ValidSelection:
         ValidSelection = True
         
     else:
-        print ("ERROR: Invalid Bot Selection")
+        print ("ERROR: Invalid Bot Selection\n")
 
 #-- Universal Variables --#
 bot.prefix = prefix
