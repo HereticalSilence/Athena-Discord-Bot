@@ -51,8 +51,6 @@ class CogLoader(commands.Cog, name = "CogLoader", description = "Commands relate
                     embed.add_field(name=" ", value=f':warning: {cog} was not reloaded as it is unloadable', inline=False)
                 else:
                     try:
-                        if self.bot.cogs[cog].task.is_running():
-                            await self.bot.cogs[cog].task.cancel()
                         await self.bot.unload_extension("cogs."+cog)
                         await self.bot.load_extension("cogs."+cog)
                     except Exception as ExceptionMessage:
