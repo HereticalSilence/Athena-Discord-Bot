@@ -63,7 +63,7 @@ while not ValidSelection:
 bot.startTime = datetime.datetime.now()
 
 #-- Remove Standard Help Command --#
-#bot.remove_command('help')
+bot.remove_command('help')
 
 #-- Universal Variables --#
 bot.prefix = prefix
