@@ -16,7 +16,6 @@ class Info(commands.Cog, name = "Info", description = "Information about Athena 
         self.start_time = self.bot.startTime
         self.StartTime = datetime.datetime.now()
         self.statusChange.start()
-        self.last_status = ""
     
     def cog_unload(self):
         print ("Cancelling Status Change Task")
@@ -25,7 +24,7 @@ class Info(commands.Cog, name = "Info", description = "Information about Athena 
     #-- Version Command --#
     @commands.command(name="Version", aliases=["v"], description="Displays Athena's current version")
     async def version(self, ctx):
-        embed = discord.Embed(description="I'm on **V" + self.version + "** of Athena.py", color=0x7DF9FF)
+        embed = discord.Embed(description=f"I'm on **V"{self.version}"** of Athena.py", color=0x7DF9FF)
         return await ctx.send(embed=embed)
     
         #-- Uptime Formatting Function --#
@@ -42,8 +41,6 @@ class Info(commands.Cog, name = "Info", description = "Information about Athena 
         if minutes < 10:
             minutes = "0" + str(minutes)
         return days, hours, minutes
-
-
 
     #-- Uptime Command --#
     @commands.command(name="Uptime", description="Shows how long Athena has been awake for!")
