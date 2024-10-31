@@ -49,7 +49,7 @@ while not ValidSelection:
 
     elif botSelection == 1:
         TOKEN = secret.AthenaDev_Token
-        prefix = "$$"
+        prefix = ">"
 
         bot = commands.Bot(command_prefix=commands.when_mentioned_or(prefix), owner_id=secret.OwnerID, case_insensitive=True, intents=intents)
         bot.dbCursor, bot.dbConnection = connectToDatabase("Athena-Dev")
@@ -62,10 +62,10 @@ while not ValidSelection:
 #-- Bot Start Time --#
 bot.startTime = datetime.datetime.now()
 
-#-- Remove Standard Help Command --#
+#-- Remove Discord.py Standard Help Command --#
 bot.remove_command('help')
 
-#-- Universal Variables --#
+#-- Universal Variables for use across cogs --#
 bot.prefix = prefix
 bot.startTime = datetime.datetime.now()
 
@@ -77,7 +77,7 @@ bot.dbConnection.close()
 #-- Load Cog Function --#
 async def loadCog(cog):
     try:
-        await bot.load_extension("cogs." + cog[0])
+        await bot.load_extension(f"cogs.{cog[0]}")
     except Exception:
         print(Exception)
     else:
